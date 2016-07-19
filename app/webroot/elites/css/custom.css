@@ -1,0 +1,126 @@
+/* ------------------------------------------------------------------
+Project: Semantic
+Place here your custom CSS styles
+------------------------------------------------------------------ */
+body {
+	/* font-family: "Lato","Lucida Grande","游ゴシック","YuGothic","Hiragino Kaku Gothic ProN",'ヒラギノ角ゴ Pro W3',"Hiragino Kaku Gothic Pro","メイリオ", Meiryo, "ＭＳ ゴシック",sans-serif !important; */
+	font-family: "Roboto", "Noto Sans CJK JP","Noto Sans JP", "ヒラギノ角ゴ ProN W3","HiraKakuProN-W3","游ゴシック", YuGothic,"メイリオ", Meiryo, Helvetica, Arial, sans-serif !important;
+}
+
+.col-xs-12 {
+    padding: 0;
+}
+
+.yellow{
+    color: #E4CA3B;
+}
+
+/* section.module {
+    padding: 70px 0;
+} */
+
+.content-box .font-inc
+{
+    text-transform: none;
+}
+
+/* .navbar-custom {
+  	background: rgba(0, 0, 0, 0.901961);
+}
+.navbar-brand {
+	height: 61px;
+}
+.navbar-toggle {
+	padding: 15px 10px;
+}
+
+.navbar-brand > img {
+    height: 100%;
+    float: left;
+    padding: 7.5px;
+} */
+
+.overlay {
+    background-color: rgba(23, 24, 27, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.footer-section {
+    background-color: #222;
+}
+
+.footer-content {
+  padding: 20px 0;
+}
+
+.footer-content .title {
+    color: #ddd;
+}
+
+.footer-content table {
+    color: #FFF;
+}
+
+.footer-content table a {
+    color: #5bc0de;
+}
+
+.footer-content a {
+    color: #999;
+}
+
+.footer-content .separator-2,
+.footer-content .separator-3 {
+  margin-bottom: 25px;
+}
+
+.footer-content .nav-pills > li > a {
+  padding: 4px 0px;
+}
+.footer-content .nav-pills.nav-stacked > li > a:after {
+  top: 5px;
+}
+
+.footer-content .social-links li {
+  margin: 0 5px 5px 0;
+}
+.footer-content .social-links li a {
+  color: #777777;
+  background-color: transparent;
+  border-color: #777777;
+}
+.footer-content .social-links li a:hover {
+  color: #fff;
+  background-color: #777777;
+  border-color: #777777;
+}
+
+.footer-content .media img,
+.block .media img {
+  width: 60px;
+}
+
+.footer-content #map-canvas {
+  height: 300px;
+}
+
+@media (max-width: 991px) {
+  .footer-content {
+    padding: 10px 0;
+  }
+}
+
+@media (min-width: 768px) {
+	.navbar-transparent {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	.navbar-nav > li > a {
+    	padding-top: 20px;
+    	padding-bottom: 20px;
+	}
+}

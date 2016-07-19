@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- Title here -->
+    <title>商材一覧画面</title>
+    <!-- Description, Keywords and Author -->
+    <meta name="description" content="Your description">
+    <meta name="keywords" content="Your,Keywords">
+    <meta name="author" content="ResponsiveWebInc">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Styles -->
+    <!-- Bootstrap CSS -->
+    <!-- <link href="theme/css/bootstrap.min.css" rel="stylesheet"> -->
+    <?php echo $this->Html->css('css/bootstrap.min')?>
+    <!-- jQuery UI -->
+    <!-- <link rel="stylesheet" href="theme/css/jquery-ui.css"> -->
+    <?php echo $this->Html->css('css/jquery-ui.css')?>
+    <!-- jQuery Gritter -->
+    <!-- <link rel="stylesheet" href="theme/css/jquery.gritter.css"> -->
+    <?php echo $this->Html->css('css/jquery.gritter.css')?>
+    <!-- Font awesome CSS -->
+    <!-- <link href="theme/css/font-awesome.min.css" rel="stylesheet"> -->
+    <?php echo $this->Html->css('css/font-awesome.min.css')?>
+    <!-- Custom CSS -->
+    <?php echo $this->Html->css('css/style.css')?>
+    <!-- <link href="theme/css/style.css" rel="stylesheet"> -->
+    <!-- Widgets stylesheet -->
+    <?php echo $this->Html->css('css/widgets.css')?>
+    <?php echo $this->Html->css('css/mainbar-margin-left0.css')?>
+    <!-- <link href="theme/css/widgets.css" rel="stylesheet"> -->
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="#">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+      <div class="container">
+        <!-- Menu button for smallar screens -->
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="index.html" class="navbar-brand"> <span class="bold">ELITES PAYMENTS</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main content starts -->
+    <div class="content">
+      <div class="mainbar">
+        <!-- Page heading -->
+        <div class="page-head">
+          <!-- Page heading -->
+          <h2 class="pull-left">商材一覧画面
+            <!-- page meta -->
+          </h2>
+          <!-- Breadcrumb -->
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="container">
+          <div class="col-sm-12">
+            <div class="widget wlightblue">
+            <!-- Widget head -->
+                <div class="widget-head">
+
+          <div class="pull-left">商材一覧</div>
+          <div class="clearfix"></div>
+            </div>
+
+            </div>
+            <div class="widget-content">
+            <div class="padd">
+        <!-- 商品一覧の作成 -->
+
+            <!-- <div style = "width:800px;margin:0 auto; "> -->
+              <?php foreach($items as $item) :?>
+                <?=$this->Html->link('
+                <table class="table-hover" style="border:solid 1px #000; margin-bottom:10px; width:100%;">'
+                ,array('action'=>'id',$item['Item']['cha_rec_id'])
+                ,array('escape' =>false)
+                )?>
+                <tr>
+                    <td class="col-sm-4"><?=h($item['Item']['name'])?>
+                    </td>
+                    <td  class="col-sm-8" style = "border-left:solid 1px #000;"><?=h($item['Item']['description'])?><br><?=h(number_format($item['Item']['amount']))?>円
+                    </td>
+                  </tr>
+                </table>
+                <!-- linkヘルパー終了用 -->
+              </a>
+              <?php endforeach ;?>
+              </div>
+            </div>
+          </div>
+          </div>
+
+      <!-- ページネーション機能 -->
+      <div style = "text-align:center;">
+      <?php
+        if($p_limit <= $maxitem){
+        echo $this->Paginator->prev('< 前へ ');
+        echo $this->Paginator->numbers();
+        echo $this->Paginator->next(' 次へ >');
+        }
+      ?>
+      </div>
+
+  </body>
+</html>

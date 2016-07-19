@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- Title here -->
+    <title>一般決済画面</title>
+    <!-- Description, Keywords and Author -->
+    <meta name="description" content="Your description">
+    <meta name="keywords" content="Your,Keywords">
+    <meta name="author" content="ResponsiveWebInc">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- Styles -->
+    <!-- Bootstrap CSS -->
+    <?php echo $this->Html->css('css/bootstrap.min')?>
+    <!-- jQuery UI -->
+    <?php echo $this->Html->css('css/jquery-ui.css')?>
+    <!-- jQuery Gritter -->
+    <?php echo $this->Html->css('css/jquery.gritter.css')?>
+    <!-- Font awesome CSS -->
+    <?php echo $this->Html->css('css/font-awesome.min.css')?>
+    <!-- Custom CSS -->
+    <?php echo $this->Html->css('css/style.css')?>
+    <!-- Widgets stylesheet -->
+    <?php echo $this->Html->css('css/widgets.css')?>
+    <?php echo $this->Html->css('css/mainbar-margin-left0.css')?>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="#">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+      <div class="container">
+        <!-- Menu button for smallar screens -->
+        <div class="navbar-header">
+         <a href="#" class="navbar-brand"> <span class="bold">ELITES PAYMENTS</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main content starts -->
+    <div class="content">
+      <!-- Main bar -->
+      <div class="mainbar">
+        <!-- Page heading -->
+        <div class="page-head">
+          <!-- Page heading -->
+          <h2 class="pull-left">
+            <!-- page meta -->
+          </h2>
+          <!-- Breadcrumb -->
+
+          <div class="clearfix"></div>
+          </div>
+<?php //if (isset($validationErrors) && is_array($validationErrors)) {
+    //foreach ($validationErrors as $key => $values) {
+      //  foreach ($values as $value) {
+        //    echo '<p class="error">'.$value.'</p>';
+        //}
+        // echo $this->Form->error('Model.'.$key);
+   // }
+//}
+?>
+<?=$this->Session->flash() ?>
+    <div class ="container">
+    <form action="../purchased" method="post">
+        <div class="col-md-offset-1 col-md-10">
+            <div class="widget wlightblue">
+            <!-- Widget head -->
+                <div class="widget-head">
+                    <div class="pull-left">一般決済画面</div>
+                    <div class="clearfix"></div>
+                </div>
+
+          <div class="widget-content">
+            <div class="padd">
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-2">NOWALL担当者</div>
+                <div class="col-sm-9 form-inline" style="margin-bottom:3px;">
+                  <input type="text" class="form-control input-sm" id="nowall_name" placeholder="NOWALL担当者" size="70" name="nowall_name" required="required">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-2">お名前</div>
+                <div class="col-sm-9 form-inline" style="margin-bottom:3px;">
+                  <input type="text" class="form-control input-sm" id="name" placeholder="お名前" size="70" name="name" required="required">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-2">メールアドレス</div>
+                <div class="col-sm-9 form-inline" style="margin-bottom:3px;">
+                  <input type="email" class="form-control input-sm" id="email" placeholder="メールアドレス" size="70" name="email" required="required">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-2">決済金額</div>
+                <div class="col-sm-9 form-inline" style="margin-bottom:3px;">
+                <strong><?=h(number_format($items['Item']['amount'])) ?>円</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-2">決済内容</div>
+                <div class="col-sm-9 form-inline" style="margin-bottom:3px;">
+                <strong><?=h($items['Item']['name']) ?></strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-2">カード情報</div>
+                <div class="col-sm-9 form-inline" style="margin-bottom:3px;">
+                <script src="https://checkout.webpay.jp/v3/" class="webpay-button" data-key="test_public_94I0ag7bXenugPP1HrcG175s" data-lang="ja" data-partial="true"></script>
+                            (※入力されたカード情報は、WebPayのシステムを通じて安全に送信されます)
+                </div>
+            </div>
+            <div class="row" style="margin-top:30px;">
+                <div class="checkbox col-sm-offset-4"  >
+                    <label style="margin-left:5px;">
+                        <input type="checkbox" name="last_check" required>上記内容を確認した上で支払いを行います。
+                    </label>
+                </div>
+                <div class="col-sm-offset-4 col-sm-4">
+                <input class="btn btn-success btn-block" type='submit' value='送信'>
+                </div>
+            </div>
+
+            </div>
+            </div>
+            <input type="hidden" name="id" value=<?=h($items['Item']['id']);?> />
+            <input type="hidden" name="cha_rec_id" value=<?=h($items['Item']['cha_rec_id']);?> />
+            <input type="hidden" name="amount" value=<?=h($items['Item']['amount']);?> />
+            <input type="hidden" name="description" value=<?=h($items['Item']['name']);?> />
+        </form>
+
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+  </body>
+</html>
